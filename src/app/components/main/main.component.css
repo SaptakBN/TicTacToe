@@ -1,0 +1,220 @@
+.box{
+  height: 200px;
+  width: 200px;
+  border: 5px solid grey;
+  cursor: pointer;
+}
+.active{
+  background-color: rgb(0, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom: red solid 2px;
+  color: white;
+}
+.inactive{
+  background-color: rgb(172, 172, 172);
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom: rgb(0, 0, 0) solid 2px;
+  color: rgb(0, 60, 255);
+}
+.g1{
+  border-top: none;
+  border-left: none;
+}
+.g2{
+  border-left: none;
+}
+.g3{
+  border-left: none;
+  border-bottom: none;
+}
+.g4{
+  border-top: none;
+}
+.g6{
+  border-bottom: none;
+}
+.g7{
+  border-top: none;
+  border-right: none;
+}
+.g8{
+  border-right: none;
+}
+.g9{
+  border-bottom: none;
+  border-right: none;
+}
+.game{
+  width: 600px;
+  margin-bottom: 15px;
+}
+.game-box{
+  position: relative;
+}
+.box img{
+  width: inherit;
+}
+.col-4{
+  width: fit-content;
+  padding: 0px;
+}
+.container{
+  width: fit-content;
+  padding: 0px;
+}
+.player img{
+  cursor: pointer;
+}
+.line-1{
+  height:1px;
+  width:10px;
+  border-right:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-height 3s;
+  -moz-animation:    increase-height 3s;
+  -o-animation:      increase-height 3s;
+  animation:         increase-height 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(95px, 50px);
+}
+.line-2{
+  height:1px;
+  width:10px;
+  border-right:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-height 3s;
+  -moz-animation:    increase-height 3s;
+  -o-animation:      increase-height 3s;
+  animation:         increase-height 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(295px, 50px);
+}
+.line-3{
+  height:1px;
+  width:1px;
+  border-right:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-height 3s;
+  -moz-animation:    increase-height 3s;
+  -o-animation:      increase-height 3s;
+  animation:         increase-height 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(500px, 50px);
+}
+.line-4{
+  height:1px;
+  width:1px;
+  border-top:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-width 3s;
+  -moz-animation:    increase-width 3s;
+  -o-animation:      increase-width 3s;
+  animation:         increase-width 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(50px, 99px);
+}
+.line-5{
+  height:1px;
+  width:1px;
+  border-top:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-width 3s;
+  -moz-animation:    increase-width 3s;
+  -o-animation:      increase-width 3s;
+  animation:         increase-width 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(50px, 299px);
+}
+.line-6{
+  height:1px;
+  width:1px;
+  border-top:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-width 3s;
+  -moz-animation:    increase-width 3s;
+  -o-animation:      increase-width 3s;
+  animation:         increase-width 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+  transform: translate(50px, 499px);
+}
+
+.line-7{
+  transform: rotate(45deg) translate(68px, -2px);
+  height:1px;
+  width:1px;
+  border-top:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-diagonal 3s;
+  -moz-animation:    increase-diagonal 3s;
+  -o-animation:      increase-diagonal 3s;
+  animation:         increase-diagonal 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+}
+.line-8{
+  transform: rotate(-45deg) translate(-349px, 425px);
+  height:1px;
+  width:1px;
+  border-top:5px solid rgb(0, 255, 0);
+  -webkit-animation: increase-diagonal 3s;
+  -moz-animation:    increase-diagonal 3s;
+  -o-animation:      increase-diagonal 3s;
+  animation:         increase-diagonal 3s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  transform-origin:left;
+}
+
+@keyframes increase-height {
+    100% {
+        height: 500px;
+    }
+}
+@keyframes increase-width {
+    100% {
+        width: 500px;
+    }
+}
+@keyframes increase-diagonal {
+    100% {
+        width: 700px;
+    }
+}
+.x-bg{
+  background-image: radial-gradient(rgb(255, 118, 118), rgb(255, 199, 190),rgb(255, 233, 233), rgb(255, 255, 255));
+  transition: .4s ease-in-out;
+}
+.o-bg{
+  background-image: radial-gradient(rgb(255, 255, 255), rgb(216, 237, 255),rgb(180, 230, 255), rgb(115, 197, 255));
+  transition: .4s ease-in-out;
+}
+.x-hover{
+  filter: grayscale(100%);
+  opacity: 50%;
+  transition: .3s ease-in-out;
+}
+.o-hover{
+  filter: grayscale(100%);
+  opacity: 50%;
+  transition: .3s ease-in-out;
+}
+.x-hover:hover{
+  filter: grayscale(100%);
+  background-size: cover;
+  opacity: 50%;
+  content: url('src/assets/img/x.png');
+}
+.o-hover:hover{
+  filter: grayscale(100%);
+  background-size: cover;
+  opacity: 50%;
+  content: url('src/assets/img/circle.png');
+}

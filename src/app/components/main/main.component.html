@@ -1,0 +1,90 @@
+<h1 class="display-3 text-center text-danger mt-2 mb-3">Tic Tac Toe</h1>
+<div class="game mx-auto">
+  <h6 *ngIf="player1==undefined" class="fw-light text-center">Choose <img src="{{cross}}" width="25px"> or <img src="{{circle}}" width="25px"></h6>
+  <div class="d-flex">
+  <div [ngClass]="{'active':activeplayer==player1,'inactive':activeplayer!=player1}" class="player d-flex text-left">
+    <h3 class="">Player 1:</h3>
+    <ng-container *ngIf="player1!=circle">
+      <img (click)="select('1','x')"v class="mx-2 my-auto my-auto" height="30px" width="30px" src="{{ cross }}" alt="" />
+    </ng-container>
+    <ng-container *ngIf="player1!=cross">
+      <img (click)="select('1','0')" class="mx-2 my-auto my-auto" height="30px" width="30px" src="{{ circle }}" alt="" />
+    </ng-container>
+  </div>
+  <div [ngClass]="{'active':activeplayer==player2,'inactive':activeplayer!=player2}" class="player d-flex text-right ms-auto">
+    <h3 class="">Player 2:</h3>
+    <ng-container *ngIf="player2!=cross">
+      <img (click)="select('2','0')" class="mx-2 my-auto my-auto" height="30px" width="30px" src="{{ circle }}" alt="" />
+    </ng-container>
+    <ng-container *ngIf="player2!=circle">
+      <img (click)="select('2','x')" class="mx-2 my-auto my-auto" height="30px" width="30px" src="{{ cross }}" alt="" />
+    </ng-container>
+  </div>
+</div>
+  <div class="d-block mx-auto text-center">
+    <ng-container *ngIf="activeplayer!=''">
+      <div *ngIf="activeplayer==player1">
+        <p>Turn : Player 1</p>
+      </div>
+      <div *ngIf="activeplayer==player2">
+        <p>Turn : Player 2</p>
+      </div>
+    </ng-container>
+    <div class="d-flex mt-2">
+      <h4 class="fw-light text-success" *ngIf="winner!=undefined">Winner is: {{winner}}</h4>
+      <h4 class="fw-light text-warning" *ngIf="draw">Game Drawn</h4>
+      <ng-container *ngIf="winner!=undefined || draw">
+        <button  class="btn btn-outline-dark ms-auto" onclick="window.location.reload()">Reset</button>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+<div class="game-box container mx-auto d-flex">
+  <div class="lines">
+    <ng-container *ngIf="line[0]"><div class="line-1"></div></ng-container>
+    <ng-container *ngIf="line[1]"><div class="line-2"></div></ng-container>
+    <ng-container *ngIf="line[2]"><div class="line-3"></div></ng-container>
+    <ng-container *ngIf="line[3]"><div class="line-4"></div></ng-container>
+    <ng-container *ngIf="line[4]"><div class="line-5"></div></ng-container>
+    <ng-container *ngIf="line[5]"><div class="line-6"></div></ng-container>
+    <ng-container *ngIf="line[6]"><div class="line-7"></div></ng-container>
+    <ng-container *ngIf="line[7]"><div class="line-8"></div></ng-container>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-4">
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[0]==undefined,'o-hover':activeplayer==circle && box[0]==undefined,'x-bg':box[0]==cross,'o-bg':box[0]==circle}" class="box g1" (click)="mark(0)">
+        <ng-container ><img [src]="box[0]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[1]==undefined,'o-hover':activeplayer==circle && box[1]==undefined,'x-bg':box[1]==cross,'o-bg':box[1]==circle}" class="box g2" (click)="mark(1)">
+        <ng-container ><img [src]="box[1]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[2]==undefined,'o-hover':activeplayer==circle && box[2]==undefined,'x-bg':box[2]==cross,'o-bg':box[2]==circle}" class="box g3" (click)="mark(2)">
+        <ng-container ><img [src]="box[2]" /></ng-container>
+      </div>
+    </div>
+    <div class="col-4">
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[3]==undefined,'o-hover':activeplayer==circle && box[3]==undefined,'x-bg':box[3]==cross,'o-bg':box[3]==circle}" class="box g4" (click)="mark(3)">
+        <ng-container ><img [src]="box[3]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[4]==undefined,'o-hover':activeplayer==circle && box[4]==undefined,'x-bg':box[4]==cross,'o-bg':box[4]==circle}" class="box g5" (click)="mark(4)">
+        <ng-container ><img [src]="box[4]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[5]==undefined,'o-hover':activeplayer==circle && box[5]==undefined,'x-bg':box[5]==cross,'o-bg':box[5]==circle}" class="box g6" (click)="mark(5)">
+        <ng-container ><img [src]="box[5]" /></ng-container>
+      </div>
+    </div>
+    <div class="col-4">
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[6]==undefined,'o-hover':activeplayer==circle && box[6]==undefined,'x-bg':box[6]==cross,'o-bg':box[6]==circle}" class="box g7" (click)="mark(6)">
+        <ng-container ><img [src]="box[6]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[7]==undefined,'o-hover':activeplayer==circle && box[7]==undefined,'x-bg':box[7]==cross,'o-bg':box[7]==circle}" class="box g8" (click)="mark(7)">
+        <ng-container ><img [src]="box[7]" /></ng-container>
+      </div>
+      <div [ngClass]="{'x-hover':activeplayer==cross && box[8]==undefined,'o-hover':activeplayer==circle && box[8]==undefined,'x-bg':box[8]==cross,'o-bg':box[8]==circle}" class="box g9" (click)="mark(8)">
+        <ng-container ><img [src]="box[8]" /></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
